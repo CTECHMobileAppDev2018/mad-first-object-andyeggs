@@ -1,28 +1,29 @@
 
 // This is an example class for a player in a game
-public class Player {
+public class Car {
   
   // we don't want other objects changing these directly, so they are private
-  private String name;
-  private int health;
+  private String color;
+  private String make;
+  private String model;
+  private int year;
   
   // this is called a "constructor". It is automatically called when someone creates a new Player object
-  Player(String playerName) {
-    this.health = 100;
-    this.name = playerName;
-  }
-  
-  // next we have "setters" and "getters"
-  // these allow us to set and get properties, including doing some error checking
-  public void setName(String playerName) { 
-
-    // first let's make sure the length of the name is longer than 0
-    if (playerName.length() < 1) {
-      this.name = "invalid";
+  Car(String carInfo) { //Ex. Red Dodge Dakota 2001
+    try {
+      String[] info = carInfo.split(" "); //splits the info into sections based on whitespace\
+      this.color = info[0];
+      this.make = info[1];
+      this.model = info[2];
+      this.year = Integer.parseInt(info[3]);
+    } catch(ArrayIndexOutOfBoundsException e) {
       return;
     }
+  }
+ 
+  /* STOPPED AT MAKING AND SETTING METHODS
+  public void setName(String playerName) { 
     
-    this.name = playerName;
   }
   
   // this just gets the name 
@@ -44,5 +45,5 @@ public class Player {
   
   public int getHealth() {
     return this.health;
-  }
+  }*/
 }
