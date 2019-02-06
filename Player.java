@@ -1,37 +1,24 @@
-
-// This is an example class for a player in a game
 public class Player {
   
-  // we don't want other objects changing these directly, so they are private
   private String name;
   private int health;
-  
-  // this is called a "constructor". It is automatically called when someone creates a new Player object
+  //NEXT, CREATE AN ARRAY OF CARS FOR PLAYERS!!!
   Player(String playerName) {
     this.health = 100;
     this.name = playerName;
   }
-  
-  // next we have "setters" and "getters"
-  // these allow us to set and get properties, including doing some error checking
-  public void setName(String playerName) { 
 
-    // first let's make sure the length of the name is longer than 0
-    if (playerName.length() < 1) {
-      this.name = "invalid";
+  public void setName(String playerName) { 
+    if (playerName.length() < 1) {// verifies the length of playerName is valid
+      System.out.println("Error: setName");
       return;
     }
-    
     this.name = playerName;
   }
   
-  // this just gets the name 
   public String getName() {
     return this.name;
   }
-  
-  // here is where you should insert your setHealth and getHealth methods
-  // what are some conditions that need to be checked?
   
   public void setHealth(int playerHealth) { 
     if (playerHealth < 0) {
